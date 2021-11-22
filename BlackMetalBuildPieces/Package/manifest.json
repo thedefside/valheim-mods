@@ -1,0 +1,10 @@
+﻿{
+  "name": "BlackMetalBuildPieces",
+  "description": "Makes Black Metal versions of the Iron build pieces.",
+  "version_number": "0.0.4",
+  "website_url": "https://github.com/thedefside/BlackMetalBuildPieces",
+  "dependencies": [
+    "denikson-BepInExPack_Valheim-5.4.1600",
+    "ValheimModding-Jotunn-2.3.10"
+  ]
+}
