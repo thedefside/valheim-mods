@@ -18,7 +18,7 @@ namespace MonsterMobs
     {
         public const string PluginGUID = "thedefside.MonsterMobs";
         public const string PluginName = "MonsterMobs";
-        public const string PluginVersion = "0.0.1";
+        public const string PluginVersion = "0.0.2";
         
         // Use this class to add your own localization to the game
         // https://valheim-modding.github.io/Jotunn/tutorials/localization.html
@@ -73,7 +73,7 @@ namespace MonsterMobs
                 }
             }
 
-            PrefabManager.OnVanillaPrefabsAvailable += AddClonedItems;
+            PrefabManager.OnVanillaPrefabsAvailable -= AddClonedItems;
 
         }
         private Texture2D LoadEmbeddedTexture(string imageName)
@@ -102,7 +102,7 @@ namespace MonsterMobs
 
     }
 
-    public static class GemObjectExtensions
+    public static class GameObjectExtensions
     {
 
         public static GameObject ChangeTexture(this GameObject go, Texture2D texture)
