@@ -17,7 +17,7 @@ namespace BlackMetalBuildPieces
     {
         public const string PluginGUID = "thedefside.BlackMetalBuildPieces";
         public const string PluginName = "BlackMetalBuildPieces";
-        public const string PluginVersion = "0.0.3";
+        public const string PluginVersion = "0.0.4";
                 
         private void Awake()
         {
