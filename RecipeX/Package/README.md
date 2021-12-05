@@ -13,6 +13,9 @@ If you enjoy pressing the 'Craft' button over and over and over... This mod is _
  - generates a file with all the vanilla recipes on first run
 
 ## Changelog
+v0.0.2
+ - Fix recipes not respecting original recipe's minimum crafting station requirement (thanks JotaEme88!)
+
 v0.0.1
  - Initial version
 

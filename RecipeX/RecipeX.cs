@@ -22,7 +22,7 @@ namespace RecipeX
     {
         public const string PluginGUID = "thedefside.RecipeX";
         public const string PluginName = "RecipeX";
-        public const string PluginVersion = "0.0.1";
+        public const string PluginVersion = "0.0.2";
 
 
         // Use this class to add your own localization to the game
@@ -63,6 +63,7 @@ namespace RecipeX
                             Name = originalRecipe.m_item.name + $"x{amount}",
                             CraftingStation = originalRecipe.m_craftingStation.name,
                             Amount = amount,
+                            MinStationLevel = originalRecipe.m_minStationLevel,
                             Requirements = originalRecipe.m_resources.ToList().Select(r => new RequirementConfig { Amount = r.m_amount * recipe.Multiplier, Item = r.m_resItem.name }).ToArray()
                         };
 

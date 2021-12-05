@@ -1,7 +1,7 @@
 ﻿{
   "name": "RecipeX",
   "description": "Adds new recipes that craft multiple items at once",
-  "version_number": "0.0.1",
+  "version_number": "0.0.2",
   "website_url": "https://github.com/thedefside/valheim-mods/tree/master/RecipeX",
   "dependencies": [
     "denikson-BepInExPack_Valheim-5.4.1502",
