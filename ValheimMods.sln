@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonsterMobs", "MonsterMobs\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeX", "RecipeX\RecipeX.csproj", "{7D548DFF-19BA-459E-A663-B766B4368454}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jtv", "jtv-extras\jtv.csproj", "{702CB53A-FA83-410E-847A-A5E5F4F3427B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{7D548DFF-19BA-459E-A663-B766B4368454}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D548DFF-19BA-459E-A663-B766B4368454}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D548DFF-19BA-459E-A663-B766B4368454}.Release|Any CPU.Build.0 = Release|Any CPU
+		{702CB53A-FA83-410E-847A-A5E5F4F3427B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{702CB53A-FA83-410E-847A-A5E5F4F3427B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{702CB53A-FA83-410E-847A-A5E5F4F3427B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{702CB53A-FA83-410E-847A-A5E5F4F3427B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
