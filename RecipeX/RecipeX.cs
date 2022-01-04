@@ -77,6 +77,8 @@ namespace RecipeX
                 }
             }
 
+            ItemManager.OnItemsRegisteredFejd -= AddRecipes;
+
         }
 
         internal static void GenerateJsonFile()
