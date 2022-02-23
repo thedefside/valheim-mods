@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MysticalValheimCreatures", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuckLantern", "GuckLantern\GuckLantern.csproj", "{7A9FEACC-B875-44A8-9362-803C856FE56F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllFather", "AllFather\AllFather.csproj", "{D312DACC-C682-465C-B47E-054CC472F8DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{7A9FEACC-B875-44A8-9362-803C856FE56F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A9FEACC-B875-44A8-9362-803C856FE56F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A9FEACC-B875-44A8-9362-803C856FE56F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D312DACC-C682-465C-B47E-054CC472F8DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D312DACC-C682-465C-B47E-054CC472F8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D312DACC-C682-465C-B47E-054CC472F8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D312DACC-C682-465C-B47E-054CC472F8DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

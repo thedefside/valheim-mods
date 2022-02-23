@@ -603,9 +603,7 @@ namespace jtv
                     }
                     renderer.materials = mats.ToArray();
                 }
-
-
-
+                
             }
             catch (Exception e)
             {
