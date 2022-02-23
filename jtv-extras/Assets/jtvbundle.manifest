@@ -1,0 +1,100 @@
+ManifestFileVersion: 0
+CRC: 4193584742
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5aea5aa6fe8b33d5c8a6729fe4fcd7a6
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2faa81aea05dd74e1029c551f8158246
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5c028e471205a7b48b77cab0dc122d1a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 81d1d799ffe56064ebfacf0195e6cc71, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 919e2c5a7b089214da77bd241039db41, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 462619ba65cf03a449061b46163c7470, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2cf3ef3b2d7681145ae29affc8691a4e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 84fff38ba1057934d9b1671510365d97, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1b22b2ab21b7cdf40bc8753fd6844335, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0e36886c37d50b94e9e782997d026c9f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ef18dd5d93a1f74499cbe939fddecf94, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 56df61fe09a8a0c41a79c15fb8573146, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 205
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/CustomItems/Salt/SaltRock_n.png
+- Assets/CustomItems/amethyst/amethyst.mat
+- Assets/CustomItems/Salt/SaltCube.prefab
+- Assets/CustomItems/BurnedRemains/BurnedRemains.prefab
+- Assets/CustomItems/Salt/SaltCube_mat.mat
+- Assets/CustomItems/ObsidianGolemTrophy/ObsidianGolemTrophy.prefab
+- Assets/CustomItems/JotunnBone/jotunnbone.png
+- Assets/CustomItems/FrozenRemains/FrozenRemains.prefab
+- Assets/CustomItems/SpiderSilk/spidersilkhandle.mat
+- Assets/CustomItems/ObsidianGolemTrophy/ObsidianGolemTrophyIcon.png
+- Assets/CustomItems/JotunnBone/JotunnBone.prefab
+- Assets/CustomItems/ObsidianGolemTrophy/obsidianGolem_mat.mat
+- Assets/CustomItems/Salt/salt_nosnow.mat
+- Assets/CustomItems/JotunnBone/jotunnbone.mat
+- Assets/CustomItems/amethyst/AmethystIcon.png
+- Assets/CustomItems/Salt/SaltRock_d.png
+- Assets/CustomItems/Salt/Salt.png
+- Assets/CustomItems/SilverGolemTrophy/silvergolemtrophy_mat.mat
+- Assets/CustomItems/FrometalBuckler/ShieldFrometalBuckler.prefab
+- Assets/CustomItems/Salt/SaltRock_mat.mat
+- Assets/CustomItems/SilverGolemTrophy/SilverGolemTrophy.prefab
+- Assets/CustomItems/SpiderSilk/spidersilk.mat
+- Assets/CustomItems/FrozenRemains/frozenremainsicon.png
+- Assets/CustomItems/FrozenRemains/frozenremains.mat
+- Assets/CustomItems/BurnedRemains/burnedremainsicon.png
+- Assets/CustomItems/Salt/SaltRock_m.png
+- Assets/CustomItems/SpiderSilk/SpiderSilk.prefab
+- Assets/CustomItems/amethyst/Amethyst.prefab
+- Assets/CustomItems/BurnedRemains/burnedremains.mat
+- Assets/CustomItems/Salt/MineRock_Salt.prefab
+- Assets/CustomItems/FrometalWarhammer/FrometalWarhammer.prefab
+- Assets/CustomItems/SpiderSilk/spidersilkicon.png
+Dependencies: []

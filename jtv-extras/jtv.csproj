@@ -83,6 +83,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <EmbeddedResource Include="Assets\jtvbundle" />
+    <None Include="Assets\Translations\English\jtv.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="README.md" />
   </ItemGroup>
@@ -98,6 +102,10 @@
     <EmbeddedResource Include="Assets\Liver.png" />
     <EmbeddedResource Include="Assets\LiverAndOnions.png" />
     <EmbeddedResource Include="Assets\bananas_icon.png" />
+    <EmbeddedResource Include="Assets\ChickenNoodleIcon.png" />
+    <EmbeddedResource Include="Assets\ChickenNoodleSoup.png" />
+    <EmbeddedResource Include="Assets\SaltedMeat.png" />
+    <EmbeddedResource Include="Assets\bam2.png" />
     <Content Include="Package\icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

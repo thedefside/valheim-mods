@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 279779329
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: jtvbundle
+      Dependencies: {}
+    Info_1:
+      Name: mmbundle
+      Dependencies: {}
