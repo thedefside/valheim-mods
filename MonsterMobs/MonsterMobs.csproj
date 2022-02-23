@@ -97,6 +97,7 @@
     <EmbeddedResource Include="Assets\ArcticWolfPelt.png" />
     <EmbeddedResource Include="Assets\ArcticWolfPeltIcon.png" />
     <EmbeddedResource Include="Assets\ArcticWolfRugIcon.png" />
+    <EmbeddedResource Include="Assets\mmbundle" />
     <EmbeddedResource Include="Assets\StormWolf.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -110,10 +111,25 @@
     <EmbeddedResource Include="Assets\DarkSpider.png" />
     <EmbeddedResource Include="Assets\StormFenring.png" />
     <EmbeddedResource Include="Assets\SwollenBody.png" />
-    <EmbeddedResource Include="Assets\AshNeck.png" />
     <EmbeddedResource Include="Assets\ArcticWolf.png" />
     <EmbeddedResource Include="Assets\ArcticWolfTrophy.png" />
     <EmbeddedResource Include="Assets\Froot.png" />
+    <EmbeddedResource Include="Assets\StormWolfTrophy.png" />
+    <EmbeddedResource Include="Assets\StormFenringTrophy.png" />
+    <EmbeddedResource Include="Assets\DevourerFenringTrophy.png" />
+    <EmbeddedResource Include="Assets\PolarLoxTrophy.png" />
+    <EmbeddedResource Include="Assets\SwollenBodyTrophy.png" />
+    <EmbeddedResource Include="Assets\BurnedBonesTex.png" />
+    <EmbeddedResource Include="Assets\BurnedBonesTrophy.png" />
+    <EmbeddedResource Include="Assets\FrozenCorpse.png" />
+    <EmbeddedResource Include="Assets\FrozenCorpseTrophy.png" />
+    <EmbeddedResource Include="Assets\PolarFenringTrophy.png" />
+    <EmbeddedResource Include="Assets\AshNeck.png" />
+    <EmbeddedResource Include="Assets\AshHatchling.png" />
+    <EmbeddedResource Include="Assets\Hatchling_E.png" />
+    <EmbeddedResource Include="Assets\Hatchling_n.png" />
+    <EmbeddedResource Include="Assets\StormHatchling.png" />
+    <EmbeddedResource Include="Assets\SilverGolemTrophyIcon.png" />
     <Content Include="Package\icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
