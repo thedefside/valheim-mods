@@ -284,7 +284,7 @@ namespace GuckLantern
             }
             finally
             {
-                PieceManager.OnPiecesRegistered -= AddClonedItems;
+                PrefabManager.OnPrefabsRegistered -= AddClonedItems;
             }
         }
 
