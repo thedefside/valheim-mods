@@ -40,6 +40,9 @@ namespace AllFather
                     {
                         Name = "Cape of Odin",
                         Description = "Odin's finest warriors deserve the finest cloth.",
+                        CraftingStation = "piece_workbench",
+                        RepairStation = "piece_workbench",
+                        MinStationLevel = 1,
                         Enabled = true,
                         Requirements = new RequirementConfig[]
                         {
@@ -56,6 +59,9 @@ namespace AllFather
                         Name = "Hood of Odin",
                         Description = "Odin's finest warriors deserve the finest cloth.",
                         Enabled = true,
+                        CraftingStation = "piece_workbench",
+                        RepairStation = "piece_workbench",
+                        MinStationLevel = 1,
                         Requirements = new RequirementConfig[]
                         {
                             new RequirementConfig { Item = "Coal", Amount = 4 },
@@ -71,6 +77,9 @@ namespace AllFather
                         Name = "Mead horn of Odin",
                         Description = "Odin's finest warriors deserve the finest drinks.",
                         Enabled = true,
+                        CraftingStation = "piece_workbench",
+                        RepairStation = "piece_workbench",
+                        MinStationLevel = 1,
                         Requirements = new RequirementConfig[]
                         {
                             new RequirementConfig { Item = "Resin", Amount = 2 },
