@@ -1,0 +1,108 @@
+ManifestFileVersion: 0
+CRC: 3506964685
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2f3367c1bb2e48f0f0b50094eed6cc6a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: a03433778640a8de8cfbaae9b22fd032
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 23
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 33
+  Script: {instanceID: 0}
+- Class: 43
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
+- Class: 65
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 91
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: fab368b0a23826d4ea765c2ce1d474f6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f23f7c41aabd1d94ab7016c3c097d7a3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 682946d17a815d1479fa4d2d5a75fb9c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 58e679920872fba48be39b9a3af48018, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0be5f4a4a7defa34fbc64441e1bdbb0f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 102de9159f76d4e4bbfa9ccac3fdcb5e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cc87bdc58ed0e954cbe379ff2581d38b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ea996966294922640972ddbdf2e3ff7c, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5c028e471205a7b48b77cab0dc122d1a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2c04f269404c6e54e816d7fbb24b3ee1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 462619ba65cf03a449061b46163c7470, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1b22b2ab21b7cdf40bc8753fd6844335, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3216780d11b643c48826f3180c65c170, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: e2a9cf9d7b06aeb4390cc69f6b5c919a, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 10a149cfef5d1da4c9b20b6ba03076ad, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 134
+  Script: {instanceID: 0}
+- Class: 136
+  Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
+- Class: 183
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
+  Script: {instanceID: 0}
+- Class: 205
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/CustomItems/AshHatchlingTrophy/AshHatchlingTrophy.prefab
+- Assets/CustomItems/AshNeckTrophy/AshNeckTrophy.prefab
+- Assets/CustomItems/StormHatchlingTrophy/StormHatchlingTrophy.prefab
+- Assets/CustomItems/StormHatchling/StormHatchling.prefab
+- Assets/CustomItems/StormWolfCape/StormWolfCape.prefab
+- Assets/CustomItems/StormWolfRug/StormWolfRug.prefab
+- Assets/CustomItems/JotunnTrophy/JotunnTrophy.prefab
+- Assets/CustomItems/SmallPolarSerpentTrophy/SmallPolarSerpentTrophy.prefab
+- Assets/CustomItems/ArcticWolfCape/ArcticWolfCape.prefab
+- Assets/CustomItems/AshHatchling/AshHatchling.prefab
+- Assets/CustomItems/StormWolfPelt/StormWolfPelt.prefab
+- Assets/CustomItems/AshNeck/AshNeck.prefab
+Dependencies: []

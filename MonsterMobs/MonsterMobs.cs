@@ -20,7 +20,7 @@ namespace MonsterMobs
     {
         public const string PluginGUID = "thedefside.MonsterMobs";
         public const string PluginName = "MonsterMobs";
-        public const string PluginVersion = "0.0.7";
+        public const string PluginVersion = "0.0.8";
 
         public static bool Debug = false;
 
@@ -46,8 +46,8 @@ namespace MonsterMobs
                 new Clone("Deathsquito", "AshMosquito", "AshMosquito"),
                 new Clone("Fenring", "DevourerFenring", "DevourerFenring"),
                 new Clone("Fenring_ragdoll", "DevourerFenring_ragdoll", "DevourerFenring"),
-                new Clone("Troll", "Jotunn", "Jotunn"),
-                new Clone("Troll_ragdoll", "Jotunn_ragdoll", "Jotunn"),
+                new Clone("Troll", "Jotunn_mm", "Jotunn"),
+                new Clone("Troll_ragdoll", "Jotunn_ragdoll_mm", "Jotunn"),
                 new Clone("Fenring", "PolarFenring", "PolarFenring"),
                 new Clone("Fenring_ragdoll", "PolarFenring_ragdoll", "PolarFenring"),
                 new Clone("Lox", "PolarLox", "PolarLox"),
@@ -453,7 +453,7 @@ namespace MonsterMobs
         private Sprite LoadEmbeddedSprite(string imageName)
         {
             Assembly myAssembly = Assembly.GetExecutingAssembly();
-            var resourceName = myAssembly.GetManifestResourceNames().SingleOrDefault(str => str == $"MonsterMobs.Assets.{imageName}.png");
+            var resourceName = myAssembly.GetManifestResourceNames().SingleOrDefault(str => str == $"MonsterMobs.Assets.Sprites.{imageName}.png");
             if (resourceName is null) throw new Exception($"{imageName}.png not found.");
             Jotunn.Logger.LogDebug($"Resource name : {resourceName}");
 

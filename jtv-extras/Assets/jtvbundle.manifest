@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 4193584742
+CRC: 324321335
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5aea5aa6fe8b33d5c8a6729fe4fcd7a6
+    Hash: 6c922e154f4486ab01661b423babe4b3
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 2faa81aea05dd74e1029c551f8158246
+    Hash: 4ed98ce1b44b65f8b6c421a53dfe11ae
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -31,8 +31,14 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 65
   Script: {instanceID: 0}
+- Class: 82
+  Script: {instanceID: 0}
+- Class: 83
+  Script: {instanceID: 0}
 - Class: 108
   Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 52626da320da5c04da083d066d29591e, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 5c028e471205a7b48b77cab0dc122d1a, type: 3}
 - Class: 114
@@ -52,7 +58,11 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: ef18dd5d93a1f74499cbe939fddecf94, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: e2a9cf9d7b06aeb4390cc69f6b5c919a, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 56df61fe09a8a0c41a79c15fb8573146, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 10a149cfef5d1da4c9b20b6ba03076ad, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 198
@@ -83,6 +93,7 @@ Assets:
 - Assets/CustomItems/Salt/SaltRock_d.png
 - Assets/CustomItems/Salt/Salt.png
 - Assets/CustomItems/SilverGolemTrophy/silvergolemtrophy_mat.mat
+- Assets/PrefabInstance/sfx_swedishchef_idle1.prefab
 - Assets/CustomItems/FrometalBuckler/ShieldFrometalBuckler.prefab
 - Assets/CustomItems/Salt/SaltRock_mat.mat
 - Assets/CustomItems/SilverGolemTrophy/SilverGolemTrophy.prefab
@@ -91,9 +102,12 @@ Assets:
 - Assets/CustomItems/FrozenRemains/frozenremains.mat
 - Assets/CustomItems/BurnedRemains/burnedremainsicon.png
 - Assets/CustomItems/Salt/SaltRock_m.png
+- Assets/PrefabInstance/sfx_swedishchef_idle2.prefab
 - Assets/CustomItems/SpiderSilk/SpiderSilk.prefab
 - Assets/CustomItems/amethyst/Amethyst.prefab
+- Assets/CustomItems/FlametalWarhammer/FlametalWarhammer.prefab
 - Assets/CustomItems/BurnedRemains/burnedremains.mat
+- Assets/PrefabInstance/sfx_swedishchef_alerted.prefab
 - Assets/CustomItems/Salt/MineRock_Salt.prefab
 - Assets/CustomItems/FrometalWarhammer/FrometalWarhammer.prefab
 - Assets/CustomItems/SpiderSilk/spidersilkicon.png

@@ -11,11 +11,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeX", "RecipeX\RecipeX.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jtv", "jtv-extras\jtv.csproj", "{702CB53A-FA83-410E-847A-A5E5F4F3427B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MysticalValheimCreatures", "MysticalValheimCreatures\MysticalValheimCreatures.csproj", "{6C706E78-E398-4CDB-A4B1-C24040995DC1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GuckLantern", "GuckLantern\GuckLantern.csproj", "{7A9FEACC-B875-44A8-9362-803C856FE56F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllFather", "AllFather\AllFather.csproj", "{D312DACC-C682-465C-B47E-054CC472F8DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jtv-biomes", "jtv-biomes\jtv-biomes.csproj", "{5C61B54E-F455-42E4-89B1-81CE3EFA8DB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +39,6 @@ Global
 		{702CB53A-FA83-410E-847A-A5E5F4F3427B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{702CB53A-FA83-410E-847A-A5E5F4F3427B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{702CB53A-FA83-410E-847A-A5E5F4F3427B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6C706E78-E398-4CDB-A4B1-C24040995DC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6C706E78-E398-4CDB-A4B1-C24040995DC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6C706E78-E398-4CDB-A4B1-C24040995DC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6C706E78-E398-4CDB-A4B1-C24040995DC1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7A9FEACC-B875-44A8-9362-803C856FE56F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7A9FEACC-B875-44A8-9362-803C856FE56F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A9FEACC-B875-44A8-9362-803C856FE56F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -51,6 +47,10 @@ Global
 		{D312DACC-C682-465C-B47E-054CC472F8DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D312DACC-C682-465C-B47E-054CC472F8DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D312DACC-C682-465C-B47E-054CC472F8DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C61B54E-F455-42E4-89B1-81CE3EFA8DB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C61B54E-F455-42E4-89B1-81CE3EFA8DB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C61B54E-F455-42E4-89B1-81CE3EFA8DB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C61B54E-F455-42E4-89B1-81CE3EFA8DB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

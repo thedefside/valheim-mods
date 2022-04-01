@@ -20,14 +20,16 @@ namespace jtv
 {
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
-    [BepInDependency("swolewizard.HuntardsEpicValheimsAdditions")]
+    [BepInDependency("Huntard.EpicValheimsAdditions")]
     [BepInDependency("DasSauerkraut.Terraheim")]
+    [BepInDependency("DYBAssets", "1.7.0")]
+    [BepInDependency("thedefside.MonsterMobs")]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
     internal class Jtv : BaseUnityPlugin
     {
         public const string PluginGUID = "thedefside.jtv";
         public const string PluginName = "jtv";
-        public const string PluginVersion = "0.0.6";
+        public const string PluginVersion = "0.0.9";
         private AssetBundle bundle;
         private GameObject MineRock_Salt;
         private GameObject Salt;
@@ -41,15 +43,17 @@ namespace jtv
             bundle = AssetUtils.LoadAssetBundleFromResources("jtvbundle", typeof(Jtv).Assembly);
             LoadPrefabs();
             AddVegetation();
-            PieceManager.OnPiecesRegistered += AddForges;
             PrefabManager.OnVanillaPrefabsAvailable += AddItems;
+            PieceManager.OnPiecesRegistered += AddForges;
+            PrefabManager.OnVanillaPrefabsAvailable += AddCreatures;            
         }
 
         private void LoadPrefabs()
         {
             MineRock_Salt = bundle.LoadAsset<GameObject>("MineRock_Salt");
             Salt = bundle.LoadAsset<GameObject>("SaltCube");
-                                    
+            
+
         }
 
         private void AddVegetation()
@@ -58,7 +62,7 @@ namespace jtv
             try
             {
                 
-                ZoneManager.Instance.AddCustomVegetation(new CustomVegetation(MineRock_Salt, new VegetationConfig 
+                ZoneManager.Instance.AddCustomVegetation(new CustomVegetation(MineRock_Salt, false, new VegetationConfig 
                 {
                     Max = 3f,
                     GroupSizeMin = 1,
@@ -78,6 +82,9 @@ namespace jtv
             }
 
         }
+
+        
+
 
         private void AddForges()
         {
@@ -130,7 +137,7 @@ namespace jtv
                         m_amount = 1,
                         m_amountPerLevel = 0,
                         m_recover = true,
-                        m_resItem = PrefabManager.Cache.GetPrefab<ItemDrop>("InfusedGemstone_DoD")
+                        m_resItem = PrefabManager.Cache.GetPrefab<ItemDrop>("Amethyst")
                     },
                     new Piece.Requirement
                     {
@@ -145,6 +152,13 @@ namespace jtv
                         m_amountPerLevel = 0,
                         m_recover = true,
                         m_resItem = PrefabManager.Cache.GetPrefab<ItemDrop>("WorldTreeFragment")
+                    },
+                    new Piece.Requirement
+                    {
+                        m_amount = 10,
+                        m_amountPerLevel = 0,
+                        m_recover = true,
+                        m_resItem = PrefabManager.Cache.GetPrefab<ItemDrop>("FreezeGland")
                     }
                 };
                 
@@ -153,10 +167,10 @@ namespace jtv
                 {
                     new Piece.Requirement
                     {
-                        m_amount = 1,
+                        m_amount = 2,
                         m_amountPerLevel = 0,
                         m_recover = true,
-                        m_resItem = PrefabManager.Cache.GetPrefab<ItemDrop>("GreyPearl_DoD")
+                        m_resItem = PrefabManager.Cache.GetPrefab<ItemDrop>("JotunnBone")
                     },
                     new Piece.Requirement
                     {
@@ -177,11 +191,19 @@ namespace jtv
                         m_amount = 6,
                         m_amountPerLevel = 0,
                         m_recover = true,
-                        m_resItem = PrefabManager.Cache.GetPrefab<ItemDrop>("StormlingCore_DoD")
+                        m_resItem = PrefabManager.Cache.GetPrefab<ItemDrop>("Tar")
                     }
                 };
 
-                
+                var extList = new List<string> { "reforger_ext1", "reforger_ext2", "reforger_ext3", "reforger_ext4", "reforger_ext5" };
+                foreach (var ext in extList)
+                {
+                    var current = PrefabManager.Instance.GetPrefab(ext).GetComponent<Piece>().m_resources.ToList();
+                    current.Add(new Piece.Requirement { m_resItem = PrefabManager.Cache.GetPrefab<ItemDrop>("PrimordialIce"), m_amount = 1 });
+                    PrefabManager.Instance.GetPrefab(ext).GetComponent<Piece>().m_resources = current.ToArray();
+                }
+
+
             }
             finally
             {
@@ -603,7 +625,42 @@ namespace jtv
                     }
                     renderer.materials = mats.ToArray();
                 }
-                
+
+                var flametalWarhammer = new CustomItem(bundle.LoadAsset<GameObject>("FlametalWarhammer"), false, new ItemConfig
+                {
+                    Name = "$flametal_warhammer",
+                    Description = "$flametal_warhammer_description",
+                    CraftingStation = "piece_thorsforge",
+                    Requirements = new RequirementConfig[]
+                    {
+                        new RequirementConfig
+                        {
+                            Item = "Flametal",
+                            Amount = 15,
+                            AmountPerLevel = 7
+                        },
+                        new RequirementConfig
+                        {
+                            Item = "Silver",
+                            Amount = 10,
+                            AmountPerLevel = 3
+                        },
+                        new RequirementConfig
+                        {
+                            Item = "SpiderSilk",
+                            Amount = 4,
+                            AmountPerLevel = 2
+                        },
+                        new RequirementConfig
+                        {
+                            Item = "BurningWorldTreeFragment",
+                            Amount = 4,
+                            AmountPerLevel = 2
+                        },
+                    }
+                });
+                ItemManager.Instance.AddItem(flametalWarhammer);
+
             }
             catch (Exception e)
             {
@@ -615,6 +672,141 @@ namespace jtv
                 bundle.Unload(false);
             }
                         
+        }
+
+        private void AddCreatures()
+        {
+            try
+            {
+                //var Sfx_SwedishChef_Alerted = bundle.LoadAsset<GameObject>("sfx_swedishchef_alerted");
+                //PrefabManager.Instance.AddPrefab(Sfx_SwedishChef_Alerted);
+                //var Sfx_SwedishChef_Idle1 = bundle.LoadAsset<GameObject>("sfx_swedishchef_idle1");
+                //PrefabManager.Instance.AddPrefab(Sfx_SwedishChef_Idle1);
+                //var Sfx_SwedishChef_Idle2 = bundle.LoadAsset<GameObject>("sfx_swedishchef_idle2");
+                //PrefabManager.Instance.AddPrefab(Sfx_SwedishChef_Idle2);
+                // swedish chef
+                var swedishChef = new CustomCreature("SwedishChef_JTV", "Greydwarf_Purple_Shroom",
+                    new CreatureConfig
+                    {
+                        Name = "$swedish_chef",
+                        Faction = Character.Faction.ForestMonsters,
+                        Consumables = new[] { "Resin", "PineCone", "FirCone" },
+                    });
+                var swedishChefHumanoid = swedishChef.Prefab.GetComponent<Humanoid>();
+                swedishChefHumanoid.m_name = "$swedish_chef";
+                swedishChefHumanoid.m_defaultItems = 
+                    new GameObject[] 
+                    {
+                        PrefabManager.Instance.GetPrefab("Greydwarf_attack"),
+                        PrefabManager.Instance.GetPrefab("Greydwarf_throw")
+                    };
+                swedishChefHumanoid.m_hitEffects.m_effectPrefabs =
+                    new EffectList.EffectData[]
+                    {
+                        new EffectList.EffectData { m_prefab = PrefabManager.Instance.GetPrefab("vfx_greydwarf_hit") },
+                        new EffectList.EffectData { m_prefab = PrefabManager.Instance.GetPrefab("sfx_greydwarf_hit") }
+                    };
+                swedishChefHumanoid.m_deathEffects.m_effectPrefabs =
+                    new EffectList.EffectData[]
+                    {
+                        new EffectList.EffectData { m_prefab = PrefabManager.Instance.GetPrefab("vfx_greydwarf_death") },
+                        new EffectList.EffectData { m_prefab = PrefabManager.Instance.GetPrefab("sfx_greydwarf_death") },
+                        new EffectList.EffectData { m_prefab = PrefabManager.Instance.GetPrefab("Greydwarf_Purple_ragdoll") },
+                    };
+                //var swedishChefMonsterAi = swedishChef.Prefab.GetComponent<MonsterAI>();
+                //swedishChefMonsterAi.m_alertedEffects.m_effectPrefabs[0] =  new EffectList.EffectData { m_prefab = Sfx_SwedishChef_Alerted };
+                //swedishChefMonsterAi.m_idleSound.m_effectPrefabs = new EffectList.EffectData[] 
+                //{ 
+                //    new EffectList.EffectData { m_prefab = Sfx_SwedishChef_Idle1 }, 
+                //    new EffectList.EffectData { m_prefab = Sfx_SwedishChef_Idle2 } 
+                //};
+                CreatureManager.Instance.AddCreature(swedishChef);
+
+                //obsidian golem
+                var obsidianGolem = new CustomCreature("ObsidianGolem_JTV", "ObsidianGolem",
+                    new CreatureConfig
+                    {
+                        Name = "$obsidian_golem",
+                        Faction = Character.Faction.MountainMonsters,
+                        DropConfigs = new DropConfig[]
+                        {
+                            new DropConfig
+                            {
+                                Item = "ObsidianGolemTrophy",
+                                MinAmount = 1,
+                                MaxAmount = 1,
+                                Chance = 5,
+                                OnePerPlayer = false,
+                                LevelMultiplier = false
+                            },
+                            new DropConfig
+                            {
+                                Item = "Obsidian",
+                                MinAmount = 10,
+                                MaxAmount = 15,
+                                Chance = 100,
+                                OnePerPlayer = false,
+                                LevelMultiplier = true
+                            },
+                            new DropConfig
+                            {
+                                Item = "Crystal",
+                                MinAmount = 3,
+                                MaxAmount = 6,
+                                Chance = 100,
+                                OnePerPlayer = false,
+                                LevelMultiplier = true
+                            }
+                        }
+                    });
+                obsidianGolem.Prefab.transform.localScale = new Vector3(0.75f, 0.75f, 0.75f);
+                obsidianGolem.Prefab.GetComponent<Humanoid>().m_name = "$obsidian_golem";
+                CreatureManager.Instance.AddCreature(obsidianGolem);
+
+                // molluscan
+                var molluscan = new CustomCreature("Molluscan_JTV", "Molluscan",
+                    new CreatureConfig 
+                    {
+                        Name = "$molluscan",
+                        Faction = Character.Faction.Undead,
+                        DropConfigs = new DropConfig[]
+                        {
+                            new DropConfig
+                            {
+                                Item = "FishRaw",
+                                MinAmount = 1,
+                                MaxAmount = 2,
+                                Chance = 60,
+                                OnePerPlayer = false,
+                                LevelMultiplier = true
+                            },
+                            new DropConfig
+                            {
+                                Item = "Chitin",
+                                MinAmount = 2,
+                                MaxAmount = 4,
+                                Chance = 100,
+                                OnePerPlayer = false,
+                                LevelMultiplier = true
+                            },
+                        }
+                    });
+                molluscan.Prefab.GetComponent<Humanoid>().m_name = "$molluscan";
+                molluscan.Prefab.GetComponent<Humanoid>().m_health = 240;
+                molluscan.Prefab.GetComponent<BaseAI>().m_avoidWater = false;
+                molluscan.Prefab.GetComponent<BaseAI>().m_pathAgentType = Pathfinding.AgentType.HumanoidBig;
+                molluscan.Prefab.GetComponent<Character>().m_tolerateWater = true;
+                CreatureManager.Instance.AddCreature(molluscan);
+
+            }
+            catch (Exception e)
+            {
+                Jotunn.Logger.LogError(e.Message + e.StackTrace);
+            }
+            finally
+            {
+                PrefabManager.OnVanillaPrefabsAvailable -= AddCreatures;
+            }
         }
 
         
