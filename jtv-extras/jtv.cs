@@ -29,7 +29,7 @@ namespace jtv
     {
         public const string PluginGUID = "thedefside.jtv";
         public const string PluginName = "jtv";
-        public const string PluginVersion = "0.0.9";
+        public const string PluginVersion = "1.0.1";
         private AssetBundle bundle;
         private GameObject MineRock_Salt;
         private GameObject Salt;
@@ -42,7 +42,7 @@ namespace jtv
         {
             bundle = AssetUtils.LoadAssetBundleFromResources("jtvbundle", typeof(Jtv).Assembly);
             LoadPrefabs();
-            AddVegetation();
+            PrefabManager.OnVanillaPrefabsAvailable += AddVegetation;
             PrefabManager.OnVanillaPrefabsAvailable += AddItems;
             PieceManager.OnPiecesRegistered += AddForges;
             PrefabManager.OnVanillaPrefabsAvailable += AddCreatures;            
@@ -58,10 +58,15 @@ namespace jtv
 
         private void AddVegetation()
         {
-            Jotunn.Logger.LogInfo("Adding Vegetation");
+            Jotunn.Logger.LogInfo("Adding JTV Vegetation");
             try
             {
-                
+                MineRock_Salt.GetComponent<Destructible>().m_destroyedEffect.m_effectPrefabs = 
+                    new EffectList.EffectData[] 
+                    { 
+                        new EffectList.EffectData { m_prefab = PrefabManager.Instance.GetPrefab("vfx_RockDestroyed_Obsidian") },
+                        new EffectList.EffectData { m_prefab = PrefabManager.Instance.GetPrefab("sfx_rock_destroyed") }
+                    };
                 ZoneManager.Instance.AddCustomVegetation(new CustomVegetation(MineRock_Salt, false, new VegetationConfig 
                 {
                     Max = 3f,
@@ -79,6 +84,10 @@ namespace jtv
             catch (Exception e)
             {
                 Jotunn.Logger.LogError(e.Message + e.StackTrace);
+            }
+            finally
+            {
+                PrefabManager.OnVanillaPrefabsAvailable -= AddVegetation;
             }
 
         }
@@ -538,6 +547,7 @@ namespace jtv
                 
 
                 var obsidianGolemTrophy = bundle.LoadAsset<GameObject>("ObsidianGolemTrophy");
+                obsidianGolemTrophy.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(5, 5);
                 ItemManager.Instance.AddItem(new CustomItem(obsidianGolemTrophy, true));
 
                 var frometalWarhammer = new CustomItem(bundle.LoadAsset<GameObject>("FrometalWarhammer"), false, new ItemConfig
@@ -626,6 +636,7 @@ namespace jtv
                     renderer.materials = mats.ToArray();
                 }
 
+
                 var flametalWarhammer = new CustomItem(bundle.LoadAsset<GameObject>("FlametalWarhammer"), false, new ItemConfig
                 {
                     Name = "$flametal_warhammer",
@@ -660,6 +671,40 @@ namespace jtv
                     }
                 });
                 ItemManager.Instance.AddItem(flametalWarhammer);
+
+                var flametalItems = new List<string>
+                {
+                    "BowFlametal",
+                    "AtgeirFlametal",
+                    "SledgeFlametal",
+                    "BattleaxeFlametal",
+                    "SpearFlametal",
+                    "KnifeFlametal",
+                    "MaceFlametal",
+                    "GreatSwordFlametal",
+                    "SwordFlametal",
+                    "ShieldFlametal",
+                    "ShieldFlametalTower",
+                    "AxeFlametal",
+                    "PickaxeFlametal"
+                };
+
+                foreach (var item in flametalItems)
+                {
+                    var prefab = ItemManager.Instance.GetItem(item);
+                    foreach (var renderer in prefab.ItemPrefab.GetComponentsInChildren<MeshRenderer>())
+                    {
+                        for (int i = 0; i < renderer.materials.Length; i++)
+                        {
+                            if (renderer.materials[i].name.StartsWith("Flametal_Color"))
+                            {
+                                renderer.materials[i].SetColor("_EmissionColor", new Color(1.5f, 0.70f, 0.1f));
+                            }
+                            
+                        }
+                    }
+                }
+                
 
             }
             catch (Exception e)

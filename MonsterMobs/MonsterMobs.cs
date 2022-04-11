@@ -20,7 +20,7 @@ namespace MonsterMobs
     {
         public const string PluginGUID = "thedefside.MonsterMobs";
         public const string PluginName = "MonsterMobs";
-        public const string PluginVersion = "0.0.8";
+        public const string PluginVersion = "1.0.1";
 
         public static bool Debug = false;
 
@@ -157,6 +157,7 @@ namespace MonsterMobs
             };
 
             var ashNeckTrophy = bundle.LoadAsset<GameObject>("AshNeckTrophy");
+            ashNeckTrophy.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(0, 8);
             ItemManager.Instance.AddItem(new CustomItem(ashNeckTrophy, false));
 
             var fx_polarlox_death = PrefabManager.Instance.CreateClonedPrefab("fx_polarlox_death", "fx_lox_death");
@@ -194,6 +195,7 @@ namespace MonsterMobs
                     Icons = new Sprite[] { arcticWolfTrophyIcon } 
                 });
             var arcticWolfTrophyTexture = LoadEmbeddedTexture("ArcticWolf");
+            arcticWolfTrophy.ItemPrefab.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(0, 7);
             arcticWolfTrophy.ItemPrefab.ChangeMeshTexture(arcticWolfTrophyTexture);
 
             ItemManager.Instance.AddItem(arcticWolfTrophy);
@@ -241,12 +243,15 @@ namespace MonsterMobs
                 });
             var stormWolfTrophyTexture = LoadEmbeddedTexture("StormWolf");
             stormWolfTrophy.ItemPrefab.ChangeMeshTexture(stormWolfTrophyTexture);
+            stormWolfTrophy.ItemPrefab.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(2, 5);
             ItemManager.Instance.AddItem(stormWolfTrophy);
 
             var stormHatchlingTrophy = bundle.LoadAsset<GameObject>("StormHatchlingTrophy");
+            stormHatchlingTrophy.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(3, 5);
             ItemManager.Instance.AddItem(new CustomItem(stormHatchlingTrophy, false));
 
             var ashHatchlingTrophy = bundle.LoadAsset<GameObject>("AshHatchlingTrophy");
+            ashHatchlingTrophy.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(1, 8);
             ItemManager.Instance.AddItem(new CustomItem(ashHatchlingTrophy, false));
 
             var stormWolfPelt = bundle.LoadAsset<GameObject>("StormWolfPelt");
@@ -305,8 +310,8 @@ namespace MonsterMobs
             ItemManager.Instance.AddItem(new CustomItem(ArcticWolfCape, false, new ItemConfig
             {
                 Amount = 1,
-                CraftingStation = "piece_workbench",
-                MinStationLevel = 4,
+                CraftingStation = "reforger",
+                MinStationLevel = 1,
                 Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig
@@ -340,6 +345,7 @@ namespace MonsterMobs
             });
             
             stormFenringTrophy.ItemPrefab.ChangeMeshTexture(LoadEmbeddedTexture("StormFenring"));
+            stormFenringTrophy.ItemPrefab.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(4, 5);
             ItemManager.Instance.AddItem(stormFenringTrophy);
 
             var devourerFenringTrophyIcon = LoadEmbeddedSprite("DevourerFenringTrophy");
@@ -352,6 +358,7 @@ namespace MonsterMobs
             });
 
             devourerFenringTrophy.ItemPrefab.ChangeMeshTexture(LoadEmbeddedTexture("DevourerFenring"));
+            devourerFenringTrophy.ItemPrefab.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(1, 7);
             ItemManager.Instance.AddItem(devourerFenringTrophy);
 
             var polarLoxTrophyIcon = LoadEmbeddedSprite("PolarLoxTrophy");
@@ -362,6 +369,7 @@ namespace MonsterMobs
                 Icons = new Sprite[] { polarLoxTrophyIcon }
             });
             polarLoxTrophy.ItemPrefab.ChangeMeshTexture(LoadEmbeddedTexture("PolarLox"));
+            polarLoxTrophy.ItemPrefab.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(2, 7);
             ItemManager.Instance.AddItem(polarLoxTrophy);
 
             var burnedBonesTrophyIcon = LoadEmbeddedSprite("BurnedBonesTrophy");
@@ -372,6 +380,7 @@ namespace MonsterMobs
                 Icons = new Sprite[] { burnedBonesTrophyIcon }
             });
             burnedBonesTrophy.ItemPrefab.ChangeMeshTexture(LoadEmbeddedTexture("BurnedBonesTex"));
+            burnedBonesTrophy.ItemPrefab.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(2, 8);
             ItemManager.Instance.AddItem(burnedBonesTrophy);
 
             var frozenCorpseTrophyIcon = LoadEmbeddedSprite("FrozenCorpseTrophy");
@@ -382,6 +391,7 @@ namespace MonsterMobs
                 Icons = new Sprite[] { frozenCorpseTrophyIcon }
             });
             frozenCorpseTrophy.ItemPrefab.ChangeMeshTexture(LoadEmbeddedTexture("FrozenCorpse"));
+            frozenCorpseTrophy.ItemPrefab.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(5, 7);
             ItemManager.Instance.AddItem(frozenCorpseTrophy);
 
             var swollenBodyTrophyIcon = LoadEmbeddedSprite("SwollenBodyTrophy");
@@ -392,6 +402,7 @@ namespace MonsterMobs
                 Icons = new Sprite[] { swollenBodyTrophyIcon }
             });
             swollenBodyTrophy.ItemPrefab.ChangeMeshTexture(LoadEmbeddedTexture("SwollenBody"));
+            swollenBodyTrophy.ItemPrefab.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(4, 8);
             ItemManager.Instance.AddItem(swollenBodyTrophy);
 
             var polarFenringTrophyIcon = LoadEmbeddedSprite("PolarFenringTrophy");
@@ -402,13 +413,16 @@ namespace MonsterMobs
                 Icons = new Sprite[] { polarFenringTrophyIcon }
             });
             polarFenringTrophy.ItemPrefab.ChangeMeshTexture(LoadEmbeddedTexture("PolarFenring"));
+            polarFenringTrophy.ItemPrefab.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(6, 7);
             ItemManager.Instance.AddItem(polarFenringTrophy);
 
 
             var jotunnTrophy = bundle.LoadAsset<GameObject>("JotunnTrophy");
+            jotunnTrophy.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(3, 7);
             ItemManager.Instance.AddItem(new CustomItem(jotunnTrophy, false));
 
             var smallPolarSerpentTrophy = bundle.LoadAsset<GameObject>("SmallPolarSerpentTrophy");
+            smallPolarSerpentTrophy.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(4, 7);
             ItemManager.Instance.AddItem(new CustomItem(smallPolarSerpentTrophy, false));
 
             var silverGolemTrophyIcon = LoadEmbeddedSprite("SilverGolemTrophyIcon");
@@ -420,6 +434,7 @@ namespace MonsterMobs
             });
             DestroyImmediate(silverGolemTrophy.ItemPrefab.transform.Find("attach").transform.Find("Particle System").gameObject);
             silverGolemTrophy.ItemPrefab.GetComponentInChildren<Light>().color = Color.gray;
+            silverGolemTrophy.ItemPrefab.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(4, 6);
             foreach (var renderer in silverGolemTrophy.ItemPrefab.GetComponentsInChildren<MeshRenderer>())
             {
                 List<Material> mats = new List<Material>();
@@ -430,6 +445,15 @@ namespace MonsterMobs
                 renderer.materials = mats.ToArray();
             }
             ItemManager.Instance.AddItem(silverGolemTrophy);
+
+            var TrophySvartalfrQueen = PrefabManager.Instance.GetPrefab("TrophySvartalfrQueen");
+            TrophySvartalfrQueen.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(3, 6);
+
+            var TrophyBlazingDamnedOne = PrefabManager.Instance.GetPrefab("TrophyBlazingDamnedOne");
+            TrophyBlazingDamnedOne.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(3, 8);
+
+            var CursedEffigy = PrefabManager.Instance.GetPrefab("CursedEffigy");
+            CursedEffigy.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(2, 6);
 
             PrefabManager.OnVanillaPrefabsAvailable -= AddClonedItems;
             bundle.Unload(false);
