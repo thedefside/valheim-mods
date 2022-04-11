@@ -1,6 +1,9 @@
 ﻿# JTV Biomes
 Adds Vegetation and Locations to the Mistlands, Deep North, and Ashlands. Config options for enabling/disabling each biome individually.
 
+## Known Issues
+If you have Forgotten Biomes installed and enabled, no Vegetation will populate in the Mistlands.
+
 ## Locations
 
 ### Meadows

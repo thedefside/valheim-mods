@@ -69,6 +69,7 @@ namespace jtv_biomes
                     if (veg.m_biome == Heightmap.Biome.Mistlands && jtv_biomes.MistlandsVegetation.Value)
                     {
                         veg.m_enable = true;
+                        //Jotunn.Logger.LogInfo($"<{veg.m_name}> enabled in the Mistlands");
                         continue;
                     }
 
@@ -84,6 +85,7 @@ namespace jtv_biomes
                         if (newVeg.m_prefab.GetComponent<ZNetView>() == null) newVeg.m_prefab.AddComponent<ZNetView>();
                         
                         ZoneSystem.instance.m_vegetation.Add(newVeg);
+                        //Jotunn.Logger.LogInfo($"<{veg.m_name}> Added to the Deep North");
                     }
 
                     if (DeepNorth_Vegetation.Contains(veg.m_prefab.name) && jtv_biomes.DeepNorthVegetation.Value)
@@ -94,12 +96,23 @@ namespace jtv_biomes
                         if (newVeg.m_prefab.GetComponent<ZNetView>() == null) newVeg.m_prefab.AddComponent<ZNetView>();
 
                         ZoneSystem.instance.m_vegetation.Add(newVeg);
+                        //Jotunn.Logger.LogInfo($"<{veg.m_name}> Added to the Ashlands");
                     }
 
                 }
                 catch (Exception)
                 {
                     Jotunn.Logger.LogError($"Error loading vegetation <{veg.m_name}>");
+                }
+
+                foreach (ZoneSystem.ZoneVegetation itemVerif in __instance.m_vegetation.ToList())
+                {
+                    if (!itemVerif.m_enable || itemVerif.m_prefab.GetComponent<ZNetView>() == null)
+                    {
+                        __instance.m_vegetation.Remove(itemVerif);
+                        Jotunn.Logger.LogInfo($"jtv_biomes: {itemVerif.m_name} has been removed from World Generation (Invalid or Corrupted)");
+                        
+                    }
                 }
 
             }
