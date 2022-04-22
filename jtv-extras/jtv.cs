@@ -5,6 +5,7 @@
 // Project: jtv
 
 using BepInEx;
+using HarmonyLib;
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
@@ -33,6 +34,7 @@ namespace jtv
         private AssetBundle bundle;
         private GameObject MineRock_Salt;
         private GameObject Salt;
+        private Harmony _harmony;
 
         // Use this class to add your own localization to the game
         // https://valheim-modding.github.io/Jotunn/tutorials/localization.html
@@ -40,13 +42,16 @@ namespace jtv
 
         private void Awake()
         {
+            _harmony = Harmony.CreateAndPatchAll(Assembly.GetExecutingAssembly(), PluginGUID);
             bundle = AssetUtils.LoadAssetBundleFromResources("jtvbundle", typeof(Jtv).Assembly);
             LoadPrefabs();
             PrefabManager.OnVanillaPrefabsAvailable += AddVegetation;
             PrefabManager.OnVanillaPrefabsAvailable += AddItems;
             PieceManager.OnPiecesRegistered += AddForges;
-            PrefabManager.OnVanillaPrefabsAvailable += AddCreatures;            
+            PrefabManager.OnVanillaPrefabsAvailable += AddCreatures;
+            PrefabManager.OnVanillaPrefabsAvailable += UpdateVegvisirs;
         }
+               
 
         private void LoadPrefabs()
         {
@@ -91,9 +96,6 @@ namespace jtv
             }
 
         }
-
-        
-
 
         private void AddForges()
         {
@@ -670,6 +672,7 @@ namespace jtv
                         },
                     }
                 });
+                flametalWarhammer.ItemPrefab.GetComponent<ItemDrop>().m_itemData.m_shared.m_damagesPerLevel.m_frost = 0;
                 ItemManager.Instance.AddItem(flametalWarhammer);
 
                 var flametalItems = new List<string>
@@ -704,7 +707,6 @@ namespace jtv
                         }
                     }
                 }
-                
 
             }
             catch (Exception e)
@@ -851,6 +853,29 @@ namespace jtv
             finally
             {
                 PrefabManager.OnVanillaPrefabsAvailable -= AddCreatures;
+            }
+        }
+
+        private void UpdateVegvisirs()
+        {
+            try
+            {
+                var mistlandsVegvisirPrefab = PrefabManager.Instance.GetPrefab("Vegvisir_SvartalfrQueen");
+                var mistlandsVegvisir = mistlandsVegvisirPrefab.GetComponentInChildren<Vegvisir>();
+                mistlandsVegvisir.m_pinName = "Mourning Queen";
+
+                var ashlandsVegvisirPrefab = PrefabManager.Instance.GetPrefab("Vegvisir_BlazingDamnedOne");
+                var ashlandsVegvisir = ashlandsVegvisirPrefab.GetComponentInChildren<Vegvisir>();
+                ashlandsVegvisir.m_pinName = "Damned One";
+            }
+            catch (Exception e)
+            {
+
+                Jotunn.Logger.LogError(e.Message + e.StackTrace);
+            }
+            finally
+            {
+                PrefabManager.OnVanillaPrefabsAvailable -= UpdateVegvisirs;
             }
         }
 

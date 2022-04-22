@@ -446,11 +446,15 @@ namespace MonsterMobs
             }
             ItemManager.Instance.AddItem(silverGolemTrophy);
 
-            var TrophySvartalfrQueen = PrefabManager.Instance.GetPrefab("TrophySvartalfrQueen");
-            TrophySvartalfrQueen.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(3, 6);
+            var TrophySvartalfrQueen = PrefabManager.Instance.GetPrefab("TrophySvartalfarQueen");
+            var svTrophy = TrophySvartalfrQueen.GetComponent<ItemDrop>();
+            svTrophy.m_itemData.m_shared.m_trophyPos = new Vector2Int(3, 6);
+            svTrophy.m_itemData.m_shared.m_name = "The Mourning Queen Trophy";
 
-            var TrophyBlazingDamnedOne = PrefabManager.Instance.GetPrefab("TrophyBlazingDamnedOne");
-            TrophyBlazingDamnedOne.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(3, 8);
+            var TrophyBlazingDamnedOne = PrefabManager.Instance.GetPrefab("TrophyHelDemon");
+            var doTrophy = TrophyBlazingDamnedOne.GetComponent<ItemDrop>();
+            doTrophy.m_itemData.m_shared.m_trophyPos = new Vector2Int(3, 8);
+            doTrophy.m_itemData.m_shared.m_name = "Blazing Damned One Trophy";
 
             var CursedEffigy = PrefabManager.Instance.GetPrefab("CursedEffigy");
             CursedEffigy.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(2, 6);
