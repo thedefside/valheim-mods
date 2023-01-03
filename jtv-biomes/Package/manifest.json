@@ -1,10 +1,10 @@
 ﻿{
   "name": "jtv_biomes",
   "description": "Adds Vegetation and Locations to the Mistlands, Deep North, and Ashlands",
-  "version_number": "0.0.1",
+  "version_number": "0.0.2",
   "website_url": "https://github.com/thedefside/valheim-mods/tree/master/jtv-biomes",
   "dependencies": [
-    "denikson-BepInExPack_Valheim-5.4.1900",
-    "ValheimModding-Jotunn-2.6.1"
+    "denikson-BepInExPack_Valheim-5.4.1901",
+    "ValheimModding-Jotunn-2.10.0"
   ]
 }

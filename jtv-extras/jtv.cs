@@ -22,15 +22,14 @@ namespace jtv
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
     [BepInDependency("Huntard.EpicValheimsAdditions")]
-    [BepInDependency("DasSauerkraut.Terraheim")]
-    [BepInDependency("DYBAssets", "1.7.0")]
+    [BepInDependency("MonsterLabZ", "2.4.1")]
     [BepInDependency("thedefside.MonsterMobs")]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
     internal class Jtv : BaseUnityPlugin
     {
         public const string PluginGUID = "thedefside.jtv";
         public const string PluginName = "jtv";
-        public const string PluginVersion = "1.0.1";
+        public const string PluginVersion = "1.1.6";
         private AssetBundle bundle;
         private GameObject MineRock_Salt;
         private GameObject Salt;
@@ -103,10 +102,14 @@ namespace jtv
             {
                 Jotunn.Logger.LogInfo("Repurposing Crafting Stations");
                 var inscriptionTable = PrefabManager.Instance.GetPrefab("piece_alchemystation");
-                inscriptionTable.GetComponent<CraftingStation>().m_name = "Dark Forge";
+                foreach (var renderer in inscriptionTable.GetComponentsInChildren<Renderer>())
+                {
+                    renderer.materials = renderer.materials.Select(m => new Material(m) { color = new Color(0.20f, 0.80f, 1.3f) }).ToArray();
+                }
+                inscriptionTable.GetComponent<CraftingStation>().m_name = "Cold Forge";
                 var darkForgePiece = inscriptionTable.GetComponent<Piece>();
-                darkForgePiece.m_name = "Dark Forge";
-                darkForgePiece.m_description = "A table for crafting Heavy metal weapons and armor.";
+                darkForgePiece.m_name = "Cold Forge";
+                darkForgePiece.m_description = "A table for crafting Frometal weapons and armor.";
                 darkForgePiece.m_resources = new Piece.Requirement[]
                 {
                     new Piece.Requirement
@@ -128,51 +131,10 @@ namespace jtv
                         m_amount = 6,
                         m_amountPerLevel = 0,
                         m_recover = true,
-                        m_resItem = PrefabManager.Cache.GetPrefab<ItemDrop>("ElderBark")
+                        m_resItem = PrefabManager.Cache.GetPrefab<ItemDrop>("FreezeGland")
                     },
                 };
 
-                var armorsBench = PrefabManager.Instance.GetPrefab("reforger");
-                foreach (var renderer in armorsBench.GetComponentsInChildren<Renderer>())
-                {
-                    renderer.materials = renderer.materials.Select(m => new Material(m) { color = new Color(0.20f, 0.80f, 1.3f) }).ToArray();
-                }
-                armorsBench.GetComponent<CraftingStation>().m_name = "Cold Forge";
-                var coldForgePiece = armorsBench.GetComponent<Piece>();
-                coldForgePiece.m_name = "Cold Forge";
-                coldForgePiece.m_description = "A table for crafting Frometal weapons and armor.";
-                coldForgePiece.m_resources = new Piece.Requirement[]
-                {
-                    new Piece.Requirement
-                    {
-                        m_amount = 1,
-                        m_amountPerLevel = 0,
-                        m_recover = true,
-                        m_resItem = PrefabManager.Cache.GetPrefab<ItemDrop>("Amethyst")
-                    },
-                    new Piece.Requirement
-                    {
-                        m_amount = 8,
-                        m_amountPerLevel = 0,
-                        m_recover = true,
-                        m_resItem = PrefabManager.Cache.GetPrefab<ItemDrop>("HeavymetalBar")
-                    },
-                    new Piece.Requirement
-                    {
-                        m_amount = 6,
-                        m_amountPerLevel = 0,
-                        m_recover = true,
-                        m_resItem = PrefabManager.Cache.GetPrefab<ItemDrop>("WorldTreeFragment")
-                    },
-                    new Piece.Requirement
-                    {
-                        m_amount = 10,
-                        m_amountPerLevel = 0,
-                        m_recover = true,
-                        m_resItem = PrefabManager.Cache.GetPrefab<ItemDrop>("FreezeGland")
-                    }
-                };
-                
                 var thorsForge = PrefabManager.Instance.GetPrefab("piece_thorsforge").GetComponent<Piece>();
                 thorsForge.m_resources = new Piece.Requirement[]
                 {
@@ -206,15 +168,7 @@ namespace jtv
                     }
                 };
 
-                var extList = new List<string> { "reforger_ext1", "reforger_ext2", "reforger_ext3", "reforger_ext4", "reforger_ext5" };
-                foreach (var ext in extList)
-                {
-                    var current = PrefabManager.Instance.GetPrefab(ext).GetComponent<Piece>().m_resources.ToList();
-                    current.Add(new Piece.Requirement { m_resItem = PrefabManager.Cache.GetPrefab<ItemDrop>("PrimordialIce"), m_amount = 1 });
-                    PrefabManager.Instance.GetPrefab(ext).GetComponent<Piece>().m_resources = current.ToArray();
-                }
-
-
+                
             }
             finally
             {
@@ -422,12 +376,12 @@ namespace jtv
                             new RequirementConfig
                             {
                                 Amount = 3,
-                                Item = "raw_egg"
+                                Item = "ChickenEgg"
                             },
                             new RequirementConfig
                             {
                                 Amount = 1,
-                                Item = "cooked_chicken"
+                                Item = "CookedChickenMeat"
                             },
                             new RequirementConfig
                             {
@@ -467,12 +421,12 @@ namespace jtv
                         new RequirementConfig
                         {
                             Amount = 30,
-                            Item = "raw_egg"
+                            Item = "ChickenEgg"
                         },
                         new RequirementConfig
                         {
                             Amount = 10,
-                            Item = "cooked_chicken"
+                            Item = "CookedChickenMeat"
                         },
                         new RequirementConfig
                         {
@@ -556,7 +510,7 @@ namespace jtv
                 {
                     Name = "$frometal_warhammer",
                     Description = "$frometal_warhammer_description",
-                    CraftingStation = "reforger",
+                    CraftingStation = "piece_alchemystation",
                     Requirements = new RequirementConfig[]
                 {
                     new RequirementConfig
@@ -579,7 +533,7 @@ namespace jtv
                     },
                     new RequirementConfig
                     {
-                        Item = "WorldTreeFragment",
+                        Item = "YggdrasilWood",
                         Amount = 4,
                         AmountPerLevel = 2
                     },
@@ -592,7 +546,7 @@ namespace jtv
                 {
                     Name = "$frometal_buckler",
                     Description = "$frometal_buckler_description",
-                    CraftingStation = "reforger",
+                    CraftingStation = "piece_alchemystation",
                     Requirements = new RequirementConfig[]
                     {
                         new RequirementConfig
@@ -603,7 +557,7 @@ namespace jtv
                         },
                         new RequirementConfig
                         {
-                            Item = "WorldTreeFragment",
+                            Item = "YggdrasilWood",
                             Amount = 4,
                             AmountPerLevel = 2
                         },
@@ -860,9 +814,6 @@ namespace jtv
         {
             try
             {
-                var mistlandsVegvisirPrefab = PrefabManager.Instance.GetPrefab("Vegvisir_SvartalfrQueen");
-                var mistlandsVegvisir = mistlandsVegvisirPrefab.GetComponentInChildren<Vegvisir>();
-                mistlandsVegvisir.m_pinName = "Mourning Queen";
 
                 var ashlandsVegvisirPrefab = PrefabManager.Instance.GetPrefab("Vegvisir_BlazingDamnedOne");
                 var ashlandsVegvisir = ashlandsVegvisirPrefab.GetComponentInChildren<Vegvisir>();

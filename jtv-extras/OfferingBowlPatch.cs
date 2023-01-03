@@ -10,33 +10,17 @@ namespace jtv
         {
             if (__instance == null) return;
             Jotunn.Logger.LogDebug($"Calling OfferingBowl.Awake for {__instance.name}");
-            
-            var mistlandsAltar = GameObject.Find("SvartalfrQueenAltar_New(Clone)");
-            if (mistlandsAltar != null )
-            {
-                var mistlandsBoss = ZNetScene.instance.GetPrefab("RRRN_SvartalfrQueen");
 
-                if (mistlandsBoss != null)
-                {
-                    var mistlandsOfferingBowl = mistlandsAltar.gameObject.GetComponentInChildren<OfferingBowl>();
-                    mistlandsOfferingBowl.m_name = mistlandsBoss.gameObject.GetComponent<Humanoid>().m_name;
-                    mistlandsOfferingBowl.m_bossPrefab = mistlandsBoss.gameObject;
-                }
-                else
-                {
-                    Jotunn.Logger.LogDebug("Did not find boss <RRRN_SvartalfrQueen>");
-                }
-            }
-            else
-            {
-                Jotunn.Logger.LogDebug("Did not find altar <SvartalfrQueenAltar_New>");
-            }
             var deepNorthAltar = GameObject.Find("JotunnAltar(Clone)");
             if (deepNorthAltar != null)
             {
                 var deepNorthBoss = ZNetScene.instance.GetPrefab("RRRM_Jotunn");
                 if (deepNorthBoss != null)
                 {
+                    // make it so you can't stagger the boss
+                    deepNorthBoss.GetComponent<Humanoid>().m_staggerWhenBlocked = false;
+                    deepNorthBoss.GetComponent<Humanoid>().m_staggerDamageFactor = 0;
+
                     var deepNorthOfferingBowl = deepNorthAltar.gameObject.GetComponentInChildren<OfferingBowl>();
                     deepNorthOfferingBowl.m_name = deepNorthBoss.gameObject.GetComponent<Humanoid>().m_name;
                     deepNorthOfferingBowl.m_bossPrefab = deepNorthBoss.gameObject;
@@ -55,8 +39,16 @@ namespace jtv
             if (ashlandsAltar != null)
             {
                 var ashlandsBoss = ZNetScene.instance.GetPrefab("RRRM_DamnedOne");
-                if (ashlandsBoss != null)
+                var ashlandsBoss2 = ZNetScene.instance.GetPrefab("RRRM_BlazingDamnedOne");
+
+                if (ashlandsBoss != null && ashlandsBoss2 != null)
                 {
+                    // make it so you can't stagger the boss
+                    ashlandsBoss.GetComponent<Humanoid>().m_staggerWhenBlocked = false;
+                    ashlandsBoss.GetComponent<Humanoid>().m_staggerDamageFactor = 0;
+                    ashlandsBoss2.GetComponent<Humanoid>().m_staggerWhenBlocked = false;
+                    ashlandsBoss2.GetComponent<Humanoid>().m_staggerDamageFactor = 0;
+
                     var ashlandsOfferingBowl = ashlandsAltar.gameObject.GetComponentInChildren<OfferingBowl>();
                     ashlandsOfferingBowl.m_name = ashlandsBoss.gameObject.GetComponent<Humanoid>().m_name;
                     ashlandsOfferingBowl.m_bossPrefab = ashlandsBoss.gameObject;

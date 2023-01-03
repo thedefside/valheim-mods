@@ -1,4 +1,4 @@
-﻿# JTV Biomes
+# JTV Biomes
 Adds Vegetation and Locations to the Mistlands, Deep North, and Ashlands. Config options for enabling/disabling each biome individually.
 
 ## Known Issues
@@ -34,7 +34,7 @@ If you have Forgotten Biomes installed and enabled, no Vegetation will populate 
 - StoneVillage2
 ```
 
-### Mistlands
+### Mistlands (Disabled by Default)
 ```
 - StaminaWraith
 - StoneKeepX
@@ -70,7 +70,7 @@ If you have Forgotten Biomes installed and enabled, no Vegetation will populate 
 
 ## Vegetation
 
-### Mistlands
+### Mistlands (Disabled by Default)
 ```
 - tunnel_web
 - vertical_web

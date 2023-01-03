@@ -25,7 +25,7 @@ namespace jtv_biomes
     {
         public const string PluginGUID = "thedefside.jtv_biomes";
         public const string PluginName = "jtv_biomes";
-        public const string PluginVersion = "0.0.1";
+        public const string PluginVersion = "0.0.2";
         readonly Harmony harmony = new Harmony(PluginGUID);
 
         public static ConfigEntry<bool> MistlandsVegetation;
@@ -57,8 +57,8 @@ namespace jtv_biomes
             SwampLocations = Config.Bind("Swamp", "Swamp Locations", true, "Add Locations to the Swamp");
             MountainsLocations = Config.Bind("Mountains", "Mountains Locations", true, "Add Locations to the Mountains");
             PlainsLocations = Config.Bind("Plains", "Plains Locations", true, "Add Locations to the Plains");
-            MistlandsVegetation = Config.Bind("Mistlands", "Mistlands Vegetation", true, "Add Rocks and plants to the Mistlands");
-            MistlandsLocations = Config.Bind("Mistlands", "Mistlands Locations", true, "Add Locations to the Mistlands");
+            MistlandsVegetation = Config.Bind("Mistlands", "Mistlands Vegetation", false, "Add Rocks and plants to the Mistlands");
+            MistlandsLocations = Config.Bind("Mistlands", "Mistlands Locations", false, "Add Locations to the Mistlands");
             DeepNorthVegetation = Config.Bind("Deep North", "Deep North Vegetation", true, "Add Rocks and plants to the Deep North");
             DeepNorthLocations = Config.Bind("Deep North", "Deep North Locations", true, "Add Locations to the Deep North");
             AshlandsVegetation = Config.Bind("Ashlands", "Ashlands Vegetation", true, "Add Rocks and plants to the Ashlands");

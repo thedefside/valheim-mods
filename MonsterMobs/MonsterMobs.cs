@@ -14,13 +14,13 @@ namespace MonsterMobs
 {
     [BepInPlugin(PluginGUID, PluginName, PluginVersion)]
     [BepInDependency(Jotunn.Main.ModGuid)]
-    [BepInDependency("DYBAssets", "1.7.0")]
+    [BepInDependency("MonsterLabZ", "2.4.1")]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.Minor)]
     internal class MonsterMobs : BaseUnityPlugin
     {
         public const string PluginGUID = "thedefside.MonsterMobs";
         public const string PluginName = "MonsterMobs";
-        public const string PluginVersion = "1.0.1";
+        public const string PluginVersion = "1.1.4";
 
         public static bool Debug = false;
 
@@ -310,7 +310,7 @@ namespace MonsterMobs
             ItemManager.Instance.AddItem(new CustomItem(ArcticWolfCape, false, new ItemConfig
             {
                 Amount = 1,
-                CraftingStation = "reforger",
+                CraftingStation = "piece_alchemystation",
                 MinStationLevel = 1,
                 Requirements = new RequirementConfig[]
                 {
@@ -446,18 +446,10 @@ namespace MonsterMobs
             }
             ItemManager.Instance.AddItem(silverGolemTrophy);
 
-            var TrophySvartalfrQueen = PrefabManager.Instance.GetPrefab("TrophySvartalfarQueen");
-            var svTrophy = TrophySvartalfrQueen.GetComponent<ItemDrop>();
-            svTrophy.m_itemData.m_shared.m_trophyPos = new Vector2Int(3, 6);
-            svTrophy.m_itemData.m_shared.m_name = "The Mourning Queen Trophy";
-
             var TrophyBlazingDamnedOne = PrefabManager.Instance.GetPrefab("TrophyHelDemon");
             var doTrophy = TrophyBlazingDamnedOne.GetComponent<ItemDrop>();
             doTrophy.m_itemData.m_shared.m_trophyPos = new Vector2Int(3, 8);
             doTrophy.m_itemData.m_shared.m_name = "Blazing Damned One Trophy";
-
-            var CursedEffigy = PrefabManager.Instance.GetPrefab("CursedEffigy");
-            CursedEffigy.GetComponent<ItemDrop>().m_itemData.m_shared.m_trophyPos = new Vector2Int(2, 6);
 
             PrefabManager.OnVanillaPrefabsAvailable -= AddClonedItems;
             bundle.Unload(false);

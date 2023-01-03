@@ -5,11 +5,15 @@
 // Project: AllFather
 
 using BepInEx;
+using HarmonyLib;
 using Jotunn.Configs;
 using Jotunn.Entities;
 using Jotunn.Managers;
 using Jotunn.Utils;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection.Emit;
 
 namespace AllFather
 {
@@ -28,6 +32,7 @@ namespace AllFather
 
         private void Awake()
         {
+            Harmony.CreateAndPatchAll(typeof(AllFather).Assembly);
             PrefabManager.OnVanillaPrefabsAvailable += AddClonedItems;
         }
 
@@ -99,5 +104,24 @@ namespace AllFather
                 PrefabManager.OnVanillaPrefabsAvailable -= AddClonedItems;
             }
         }
+
+        [HarmonyPatch(typeof(TeleportWorld), "Interact")]
+        private class Interact_Patch
+        {
+            private static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+            {
+                List<CodeInstruction> list = new List<CodeInstruction>(instructions);
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (list[i].opcode == OpCodes.Ldc_I4_S)
+                    {
+                        list[i].operand = 127;
+                    }
+                }
+                return Enumerable.AsEnumerable<CodeInstruction>(list);
+            }
+        }
     }
+
+    
 }
